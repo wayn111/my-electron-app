@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make --win32"
   },
   "author": "wayn",
   "license": "ISC",
@@ -24,12 +24,17 @@
   },
   "config": {
     "forge": {
-      "packagerConfig": {},
+      "packagerConfig": {
+        "name": "fish-notify",
+        "icon": "img/fish.ico",
+        "arch": "x64"
+      },
       "makers": [
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "my_electron_app"
+            "name": "fish-notify",
+            "setupIcon": "img/fish.ico"
           }
         },
         {
@@ -37,14 +42,6 @@
           "platforms": [
             "darwin"
           ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
         }
       ]
     }
